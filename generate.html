@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Generate a Coloring Page with AI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="index.html"><span class="logo-dot"></span> Coloring Book Fun</a>
+  <nav><a class="btn btn-ghost" href="index.html">&larr; Back home</a></nav>
+</header>
+
+<main>
+  <h1>Generate with AI</h1>
+  <p class="subtitle">This static site has no server of its own, so image generation calls a model directly from your browser &mdash; either a local Stable Diffusion server on your own computer, or a cloud API using your own key. Nothing is sent anywhere except the provider you choose below.</p>
+
+  <details class="settings-panel" id="settingsPanel" open>
+    <summary>⚙️ Generation settings</summary>
+    <div class="form-row" style="margin-top:14px;">
+      <label for="provider">Provider</label>
+      <select id="provider">
+        <option value="automatic1111">Local — AUTOMATIC1111 (Stable Diffusion WebUI)</option>
+        <option value="openai">Cloud — OpenAI (gpt-image-1)</option>
+        <option value="gemini">Cloud — Google Gemini image generation</option>
+        <option value="openai-compatible">Cloud/local — Custom OpenAI-compatible endpoint</option>
+      </select>
+    </div>
+    <div class="form-row" id="baseUrlRow">
+      <label for="baseUrl">Server / base URL</label>
+      <input type="url" id="baseUrl" placeholder="http://127.0.0.1:7860">
+      <p class="form-hint" id="baseUrlHint"></p>
+    </div>
+    <div class="form-row" id="apiKeyRow">
+      <label for="apiKey">API key</label>
+      <input type="password" id="apiKey" placeholder="Saved only in this browser's localStorage">
+    </div>
+    <div class="form-row" id="modelRow">
+      <label for="model">Model name (optional override)</label>
+      <input type="text" id="model" placeholder="">
+    </div>
+    <button class="btn btn-ghost btn-sm" id="saveSettingsBtn">Save settings</button>
+    <span id="settingsSavedMsg" class="form-hint"></span>
+  </details>
+
+  <div class="workspace">
+    <div class="canvas-wrap" style="flex:1 1 480px;">
+      <div class="form-row">
+        <label for="promptInput">Describe the picture</label>
+        <textarea id="promptInput" placeholder="A friendly dinosaur reading a book under a tree"></textarea>
+        <p class="form-hint">A "coloring book, black and white line art" style is added automatically.</p>
+      </div>
+      <button class="btn btn-primary" id="generateBtn">✨ Generate</button>
+      <div id="statusMsg"></div>
+      <div id="resultWrap" style="margin-top:16px; display:none;">
+        <canvas id="resultCanvas" style="max-width:100%; border-radius:10px; background:#fff;"></canvas>
+      </div>
+    </div>
+    <div class="side-panel" id="cleanupPanel" style="display:none;">
+      <div class="card">
+        <div class="form-row">
+          <label for="threshold">Line cleanup (threshold)</label>
+          <div class="slider-row">
+            <input type="range" id="threshold" min="20" max="235" value="150">
+            <span id="thresholdLabel">150</span>
+          </div>
+        </div>
+        <div class="form-row">
+          <label><input type="checkbox" id="cleanupToggle" checked> Apply cleanup</label>
+        </div>
+        <div class="form-row">
+          <label for="pageName">Page name</label>
+          <input type="text" id="pageName" placeholder="AI Picture">
+        </div>
+        <button class="btn btn-primary" id="saveBtn" style="width:100%;">Save page</button>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script src="js/storage.js"></script>
+<script src="js/imagePrep.js"></script>
+<script src="js/generate.js"></script>
+</body>
+</html>

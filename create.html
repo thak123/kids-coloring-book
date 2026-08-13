@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Draw a Coloring Page</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="index.html"><span class="logo-dot"></span> Coloring Book Fun</a>
+  <nav><a class="btn btn-ghost" href="index.html">&larr; Back home</a></nav>
+</header>
+
+<main>
+  <h1>Draw your outline</h1>
+  <p class="subtitle">Sketch black outlines on the white page. Close up your shapes so they can be filled with color later!</p>
+
+  <div class="workspace">
+    <div class="canvas-wrap">
+      <div class="toolbar">
+        <button class="btn btn-sm" id="penTool">✏️ Pen</button>
+        <button class="btn btn-sm" id="eraserTool">🧽 Eraser</button>
+        <button class="btn btn-sm btn-ghost" id="undoBtn">↩️ Undo</button>
+        <button class="btn btn-sm btn-ghost" id="clearBtn">🗑️ Clear</button>
+      </div>
+      <canvas id="drawCanvas" width="900" height="700"></canvas>
+    </div>
+    <div class="side-panel">
+      <div class="card">
+        <div class="form-row">
+          <label for="brushSize">Brush size</label>
+          <div class="slider-row">
+            <input type="range" id="brushSize" min="2" max="24" value="6">
+            <span id="brushSizeLabel">6</span>
+          </div>
+        </div>
+        <div class="form-row">
+          <label for="pageName">Page name</label>
+          <input type="text" id="pageName" placeholder="My Drawing">
+        </div>
+        <button class="btn btn-primary" id="saveBtn" style="width:100%;">Save page</button>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script src="js/storage.js"></script>
+<script src="js/create.js"></script>
+</body>
+</html>

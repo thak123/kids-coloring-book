@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guide Editor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="index.html"><span class="logo-dot"></span> Coloring Book Fun</a>
+  <nav><a class="btn btn-ghost" href="index.html">&larr; Back home</a></nav>
+</header>
+
+<main>
+  <h1 id="pageTitle">Guide Editor</h1>
+  <p class="subtitle">Pick a color, then click a spot on the picture to add it as the next step. Kids will be guided to click that spot and fill it with that color, in order.</p>
+  <div id="statusMsg"></div>
+
+  <div class="workspace">
+    <div class="canvas-wrap" id="canvasWrap">
+      <canvas id="authorCanvas"></canvas>
+    </div>
+    <div class="side-panel">
+      <div class="card">
+        <h3 style="margin-top:0;">Color for next step</h3>
+        <div class="palette" id="palette"></div>
+        <div class="custom-color-row">
+          <input type="color" id="customColor" value="#ff6b6b">
+          <span class="form-hint">Pick any color</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3 style="margin-top:0;">Steps</h3>
+        <div class="step-list" id="stepList"></div>
+        <p class="form-hint" id="emptyStepsMsg">Click the picture to add your first step.</p>
+        <div class="toolbar" style="margin-top:12px;">
+          <button class="btn btn-ghost btn-sm" id="clearStepsBtn">Clear all</button>
+        </div>
+      </div>
+      <button class="btn btn-primary" id="saveGuideBtn" style="width:100%;">Save guide</button>
+      <a class="btn btn-accent" id="tryGuideLink" href="#" style="width:100%; justify-content:center; display:none;">▶️ Try it in Guide Mode</a>
+    </div>
+  </div>
+</main>
+
+<script src="js/storage.js"></script>
+<script src="js/samples.js"></script>
+<script src="js/author.js"></script>
+</body>
+</html>

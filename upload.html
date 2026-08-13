@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Upload a Coloring Page</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="index.html"><span class="logo-dot"></span> Coloring Book Fun</a>
+  <nav><a class="btn btn-ghost" href="index.html">&larr; Back home</a></nav>
+</header>
+
+<main>
+  <h1>Upload a picture</h1>
+  <p class="subtitle">Works best with black &amp; white line art (clean outlines, no shading). Use the threshold slider to clean it up so it fills nicely.</p>
+
+  <div class="card" style="max-width:520px; margin-bottom:20px;">
+    <div class="form-row">
+      <label for="fileInput">Choose an image file</label>
+      <input type="file" id="fileInput" accept="image/*">
+    </div>
+  </div>
+
+  <div id="previewSection" class="workspace" style="display:none;">
+    <div class="canvas-wrap">
+      <canvas id="previewCanvas"></canvas>
+    </div>
+    <div class="side-panel">
+      <div class="card">
+        <div class="form-row">
+          <label for="threshold">Line cleanup (threshold)</label>
+          <div class="slider-row">
+            <input type="range" id="threshold" min="20" max="235" value="150">
+            <span id="thresholdLabel">150</span>
+          </div>
+          <p class="form-hint">Slide until the outlines look crisp and black, with a clean white background.</p>
+        </div>
+        <div class="form-row">
+          <label><input type="checkbox" id="cleanupToggle" checked> Apply cleanup</label>
+        </div>
+        <div class="form-row">
+          <label for="pageName">Page name</label>
+          <input type="text" id="pageName" placeholder="My Picture">
+        </div>
+        <button class="btn btn-primary" id="saveBtn" style="width:100%;">Save page</button>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script src="js/storage.js"></script>
+<script src="js/imagePrep.js"></script>
+<script src="js/upload.js"></script>
+</body>
+</html>

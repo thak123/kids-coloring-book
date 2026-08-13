@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coloring Book Fun</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="index.html"><span class="logo-dot"></span> Coloring Book Fun</a>
+  <nav>
+    <button class="btn btn-ghost" id="exportAllBtn">Export all</button>
+    <button class="btn btn-ghost" id="importBtn">Import</button>
+    <input type="file" id="importFile" accept="application/json" hidden>
+  </nav>
+</header>
+
+<main>
+  <h1>Pick a picture to color!</h1>
+  <p class="subtitle">Draw your own, upload a picture, or ask the computer to make one. Then color it in free style, or turn on Guide Mode for step-by-step help.</p>
+
+  <div class="source-grid">
+    <a class="source-card" href="create.html">
+      <span class="icon">🖍️</span>
+      <h3>Draw from scratch</h3>
+      <p>Sketch your own outline with a simple pen tool.</p>
+    </a>
+    <a class="source-card" href="upload.html">
+      <span class="icon">🖼️</span>
+      <h3>Upload a picture</h3>
+      <p>Bring in your own black &amp; white line art.</p>
+    </a>
+    <a class="source-card" href="generate.html">
+      <span class="icon">✨</span>
+      <h3>Generate with AI</h3>
+      <p>Describe a picture and let an image model draw it.</p>
+    </a>
+  </div>
+
+  <h2 style="margin-top:40px;">Your coloring pages</h2>
+  <div class="grid" id="pageGrid"></div>
+</main>
+
+<footer>Made for coloring fun · everything is saved only in your own browser</footer>
+
+<script src="js/storage.js"></script>
+<script src="js/samples.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
